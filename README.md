@@ -1,2 +1,2 @@
 # Brainfuck-Interpreter-Python3
-Simple brainfuck interpreter written in python3.
+A simple brainfuck interpreter written in python3.
