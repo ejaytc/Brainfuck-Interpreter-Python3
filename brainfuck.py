@@ -5,13 +5,12 @@
 
 memory = [0]*30000
 stock = []
-stockIndex = []
 ptIndex = 0
 output = ''
 
 def brainf_program(sCode):
     
-    global memory, stock, stockIndex, ptIndex, output
+    global memory, stock, ptIndex, output
     loop = 0
     
     while loop < len(sCode):
@@ -33,15 +32,13 @@ def brainf_program(sCode):
         elif sCode[loop] == '.':
              output += chr(memory[ptIndex])
         elif sCode[loop] == '[':
-            if loop  not in stockIndex:
-                stock.append(sCode[loop])
-                stockIndex.append(loop)
+            if loop  not in stock:
+                stock.append(loop)
         elif sCode[loop] == ']':
             if memory[ptIndex] != 0:
-                loop = stockIndex[-1] -1
+                loop = stock[-1] -1
             else:
                 stock.pop()
-                stockIndex.pop()
         loop += 1
 if __name__ == "__main__":
     print("="*50)
