@@ -3,14 +3,9 @@
 #Hello World! = ">+++++++++[<++++++++>-]<.>+++++++[<++++>-]<+.+++++++..+++.[-]>++++++++[<++++>-]<.>+++++++++++[<++++++++>-]<-.--------.+++.------.--------.[-]>++++++++[<++++>-]<+.[-]"
 #Nested loop = "+++[>+++<[-]]"
 
-memory = [0]*30000
-stock = []
-ptIndex = 0
-output = ''
-
-def brainf_program(sCode):
-    
-    global memory, stock, ptIndex, output
+def brainf_program(*args):
+    sCode, memory, stock, ptIndex = args
+    output = ''
     loop = 0
     
     while loop < len(sCode):
@@ -40,11 +35,17 @@ def brainf_program(sCode):
             else:
                 stock.pop()
         loop += 1
+    return output
+
 if __name__ == "__main__":
+    memory = [0]*30000
+    stock = []
+    ptIndex = 0
+    
     print("="*50)
     print("{} BrainFuck Interpreter".format(" "*12))
     print("="*50)
     while True:
         sCode = input("~")
-        brainf_program(sCode)
-        print(output, end = '\n')
+        output =  brainf_program(sCode, memory, stock, ptIndex)
+        print(output)
