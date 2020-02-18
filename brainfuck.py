@@ -4,7 +4,7 @@
 #Nested loop = "+++[>+++<[-]]"
 
 def brainf_program(*args):
-    sCode, memory, stock, ptIndex = args
+    sCode, memory, stack, ptIndex = args
     output = ''
     loop = 0
     
@@ -27,19 +27,19 @@ def brainf_program(*args):
         elif sCode[loop] == '.':
              output += chr(memory[ptIndex])
         elif sCode[loop] == '[':
-            if loop  not in stock:
-                stock.append(loop)
+            if loop  not in stack:
+                stack.append(loop)
         elif sCode[loop] == ']':
             if memory[ptIndex] != 0:
-                loop = stock[-1] -1
+                loop = stack[-1] -1
             else:
-                stock.pop()
+                stack.pop()
         loop += 1
     return output
 
 if __name__ == "__main__":
     memory = [0]*30000
-    stock = []
+    stack = []
     ptIndex = 0
     
     print("="*50)
@@ -47,5 +47,5 @@ if __name__ == "__main__":
     print("="*50)
     while True:
         sCode = input("~")
-        output =  brainf_program(sCode, memory, stock, ptIndex)
+        output =  brainf_program(sCode, memory, stack, ptIndex)
         print(output)
