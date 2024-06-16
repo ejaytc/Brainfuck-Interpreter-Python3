@@ -38,5 +38,5 @@ Here's an example of a Brainfuck program that prints "Hello World!":
 ```
 Prints "Extended Ascii Chart":
 ```ASCII CHART EXTENDED
-+.[+.]
++.[>+.]
 ```
