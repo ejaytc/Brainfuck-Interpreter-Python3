@@ -1,0 +1,3 @@
+
+class BrainfUI:
+    raise NotImplementedError

@@ -1,0 +1,3 @@
+
+class BrainfReadFile:
+    raise NotImplementedError
